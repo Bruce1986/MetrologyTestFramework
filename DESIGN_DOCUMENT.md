@@ -89,7 +89,7 @@ The framework will be built on a layered testing approach, focusing on the first
         *   Invokes CMake to configure the build.
         *   Builds all test executables.
         *   Runs all test executables.
-        *   Parses the output and provides a clear, final summary (e.g., "ALL TESTS PASSED" or "ERROR: Test failures detected").
+        *   Checks the exit code of each test executable and provides a clear, final summary (e.g., "ALL TESTS PASSED" or "ERROR: Test failures detected").
     2.  Write a user-facing `README.md` file for the test framework (separate from this design document), explaining:
         *   The project's open-source goals.
         *   How to build and run the tests.
