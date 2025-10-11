@@ -37,7 +37,7 @@ The framework will be built on a layered testing approach, focusing on the first
 #### 2.1 Key Components
 
 1.  **Unit Test Framework: Google Test (gtest)**
-    *   **Description:** A feature-rich, open-source C++ test framework used to write and run unit tests.[5] It provides a structured syntax for defining tests and a rich set of assertion macros.[6]
+    *   **Description:** A feature-rich, open-source C++ test framework used to write and run unit tests, providing a structured syntax for defining tests and a rich set of assertion macros.[5]
     *   **Justification:** Google Test is the industry standard for complex C++ projects. Its integrated mocking framework, Google Mock (gMock), is essential for isolating components and simulating dependencies, which is critical for testing the platform's stateful control software.[6]
 
 2.  **Hardware Abstraction & Mocking**
@@ -45,8 +45,8 @@ The framework will be built on a layered testing approach, focusing on the first
     *   **Justification:** This is the core strategy that enables software integration testing without physical hardware. It allows us to verify that the control software (e.g., the sequence interpreter) sends the correct sequence of commands to the hardware abstraction layer.[7, 8]
 
 3.  **Build & Automation System**
-    *   **Description:** We will use CMake, an open-source build system, to manage the build process for both the main application and the test suite. CTest, CMake's native testing driver, will orchestrate test discovery and execution, leveraging Google Test's automatic registration via `gtest_discover_tests`.
-    *   **Justification:** CMake is the de facto standard for cross-platform C++ projects and integrates well with Google Test. Using CTest keeps the workflow idiomatic, unlocks built-in capabilities such as parallel execution and JUnit XML reporting, and creates a straightforward entry point for future CI/CD integration.[3]
+    *   **Description:** We will use CMake, an open-source build system, to manage the build process for both the main application and the test suite. A simple shell or Python script will serve as the test runner, orchestrating the build and execution steps.
+    *   **Justification:** CMake is the de facto standard for cross-platform C++ projects and integrates well with Google Test. A simple script is sufficient for initial automation and provides a clear entry point for future CI/CD integration.[3]
 
 ---
 
@@ -55,7 +55,7 @@ The framework will be built on a layered testing approach, focusing on the first
 #### **Day 1: Foundation & Setup**
 *   **Objective:** Establish a stable and repeatable build and test environment.
 *   **Tasks:**
-    1.  Set up the project structure, including separate directories for source code (`src`), test code (`tests`), and build outputs, and add the build output directory (e.g., `build/`) to `.gitignore` so that generated artifacts are not committed.
+    1.  Set up the project structure, including separate directories for source code (`src`), test code (`tests`), and build outputs.
     2.  Configure the toolchain (compiler, linker).
     3.  Create the primary `CMakeLists.txt` file to build a placeholder application.
     4.  Download and integrate the Google Test framework into the CMake build system.[9]
@@ -63,21 +63,7 @@ The framework will be built on a layered testing approach, focusing on the first
 
 #### **Day 2: Unit Testing the Core Logic**
 *   **Objective:** Validate the correctness of a critical, logic-heavy software component in isolation.
-*   **System Under Test (SUT):** A core function within the system's **sequence interpretation tool**. Specifically, the logic that translates a high-level measurement recipe into a sequence of abstract hardware actions. For example:
-
-```yaml
-# Example Recipe
-- move_to: { x: 10, y: 20 }
-- acquire_image: { exposure: 100ms }
-```
-
-This recipe should yield abstract actions similar to the following:
-
-```cpp
-axis.moveTo(10, 20);
-camera.setExposure(std::chrono::milliseconds{100});
-camera.trigger();
-```
+*   **System Under Test (SUT):** A core function within the system's **sequence interpretation tool**. Specifically, the logic that translates a high-level measurement recipe into a sequence of abstract hardware actions.
 *   **Tasks:**
     1.  Identify a specific function or class in the sequence interpreter to test.
     2.  Refactor the code if necessary to allow its dependencies to be replaced by mocks (Dependency Injection).
@@ -99,7 +85,11 @@ camera.trigger();
 #### **Day 4: Automation & Extensibility**
 *   **Objective:** Turn the collection of tests into an automated, easy-to-use framework and document its usage for an open-source audience.
 *   **Tasks:**
-    1.  Configure the top-level `CMakeLists.txt` to enable CTest, register all Google Test suites via `gtest_discover_tests`, and document running the full automation workflow with `ctest --output-on-failure` (which already provides a clear pass/fail summary and supports CI-friendly reporting).
+    1.  Create a master script (e.g., `run_all_tests.sh`) that automates the entire process:
+        *   Invokes CMake to configure the build.
+        *   Builds all test executables.
+        *   Runs all test executables.
+        *   Checks the exit code of each test executable and provides a clear, final summary (e.g., "ALL TESTS PASSED" or "ERROR: Test failures detected").
     2.  Write a user-facing `README.md` file for the test framework (separate from this design document), explaining:
         *   The project's open-source goals.
         *   How to build and run the tests.
@@ -113,10 +103,10 @@ camera.trigger();
 
 This foundational framework is designed to grow through open collaboration. The following are clear next steps that can be built upon the work completed in these four days:
 
-*   **CI/CD Integration:** The `ctest` command can be invoked directly from a public CI/CD tool like GitLab CI or GitHub Actions to trigger automated testing on every code commit and pull request, while also emitting standard reports (e.g., JUnit XML) for dashboards.[3]
+*   **CI/CD Integration:** The `run_all_tests.sh` script can be directly called from a public CI/CD tool like GitLab CI or GitHub Actions to trigger automated testing on every code commit and pull request.[3]
 *   **Community Contributions:** The open and modular design will allow the community to contribute new mock hardware components, expand test coverage, and integrate with other open-source tools.
 *   **Expanded Mock Capabilities:** The mock hardware can be enhanced to simulate error conditions (e.g., a motor failing to respond) or to return simulated sensor data, allowing for more robust testing of the control software's error handling and data processing logic.
-*   **Static Analysis Integration:** Open-source static analysis tools can be added as dedicated CMake or CI steps to check for code quality and compliance with community standards before the unit tests are run.[10]
+*   **Static Analysis Integration:** Open-source static analysis tools can be added to the automation script to check for code quality and compliance with community standards before the unit tests are run.[10]
 *   **Path to Hardware-in-the-Loop (HIL):** The hardware abstraction layer provides the perfect seam for introducing HIL simulation. The mock objects can be replaced with components that communicate with a real-time HIL simulator, allowing the same control software to be tested against a high-fidelity virtual model of the physical system.[1, 2]
 
 ### 5. Conclusion
@@ -125,13 +115,13 @@ By the end of this focused four-day effort, we will have a lean, solid, and auto
 
 ### References
 
-[1] Martin Fowler, "The Practical Test Pyramid," martinfowler.com/articles/practical-test-pyramid.html, 2018.
-[2] National Instruments, "What Is Hardware-in-the-Loop (HIL) Testing?," ni.com/en-us/innovations/white-papers/06/hardware-in-the-loop-hil-testing.html, accessed October 2025.
-[3] GitLab Documentation, "CI/CD Pipelines," docs.gitlab.com/ee/ci/pipelines/, accessed October 2025.
-[4] Jenkins Project, "Pipeline Syntax," www.jenkins.io/doc/book/pipeline/syntax/, accessed October 2025.
-[5] Google, "GoogleTest User’s Guide," google.github.io/googletest, accessed October 2025.  
-[6] Google, "gMock for dummies," google.github.io/googletest/gmock_for_dummies.html, accessed October 2025.  
+[1] Martin Fowler, "The Practical Test Pyramid," [martinfowler.com](https://martinfowler.com/articles/practical-test-pyramid.html), 2018.  
+[2] National Instruments, "What Is Hardware-in-the-Loop (HIL) Testing?," [ni.com](https://www.ni.com/en/innovations/white-papers/06/hardware-in-the-loop--hil--testing.html), accessed October 2025.  
+[3] GitLab Documentation, "CI/CD Pipelines," [docs.gitlab.com](https://docs.gitlab.com/ee/ci/pipelines/), accessed October 2025.  
+[4] Jenkins Project, "Pipeline Syntax," [www.jenkins.io/doc/book/pipeline/syntax/](https://www.jenkins.io/doc/book/pipeline/syntax/), accessed October 2025.  
+[5] Google, "GoogleTest User’s Guide," [google.github.io/googletest](https://google.github.io/googletest), accessed October 2025.  
+[6] Google, "gMock for dummies," [google.github.io/googletest/gmock_for_dummies.html](https://google.github.io/googletest/gmock_for_dummies.html), accessed October 2025.  
 [7] Gerard Meszaros, *xUnit Test Patterns: Refactoring Test Code*, Addison-Wesley, 2007.  
 [8] Vladimir Khorikov, *Unit Testing Principles, Practices, and Patterns*, Manning Publications, 2020.  
 [9] Craig Scott, *Professional CMake: A Practical Guide*, Crascit, 2023.  
-[10] SourceForge, "Cppcheck – A tool for static C/C++ code analysis," cppcheck.sourceforge.net, accessed October 2025.  
+[10] SourceForge, "Cppcheck – A tool for static C/C++ code analysis," [cppcheck.sourceforge.net](https://cppcheck.sourceforge.net), accessed October 2025.
