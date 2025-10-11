@@ -37,7 +37,7 @@ The framework will be built on a layered testing approach, focusing on the first
 #### 2.1 Key Components
 
 1.  **Unit Test Framework: Google Test (gtest)**
-    *   **Description:** A feature-rich, open-source C++ test framework used to write and run unit tests.[5] It provides a structured syntax for defining tests and a rich set of assertion macros.[6]
+    *   **Description:** A feature-rich, open-source C++ test framework used to write and run unit tests.[5] It provides a structured syntax for defining tests and a rich set of assertion macros.[5]
     *   **Justification:** Google Test is the industry standard for complex C++ projects. Its integrated mocking framework, Google Mock (gMock), is essential for isolating components and simulating dependencies, which is critical for testing the platform's stateful control software.[6]
 
 2.  **Hardware Abstraction & Mocking**
