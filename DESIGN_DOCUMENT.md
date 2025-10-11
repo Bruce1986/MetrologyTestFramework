@@ -53,8 +53,8 @@ The framework will be built on a layered testing approach, focusing on the first
 ### 3. Implementation Plan (4-Day Schedule)
 
 #### **Day 1: Foundation & Setup**
-*   **Objective:** Establish a stable and repeatable build and test environment.
-*   **Tasks:**
+**Objective:** Establish a stable and repeatable build and test environment.
+**Tasks:**
     1.  Set up the project structure, including separate directories for source code (`src`), test code (`tests`), and build outputs.
     2.  Configure the toolchain (compiler, linker).
     3.  Create the primary `CMakeLists.txt` file to build a placeholder application.
