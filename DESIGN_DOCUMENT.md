@@ -118,7 +118,7 @@ By the end of this focused four-day effort, we will have a lean, solid, and auto
 [1] Martin Fowler, "The Practical Test Pyramid," martinfowler.com, 2018.  
 [2] National Instruments, "What Is Hardware-in-the-Loop (HIL) Testing?," ni.com, accessed October 2025.  
 [3] GitLab Documentation, "CI/CD Pipelines," docs.gitlab.com, accessed October 2025.  
-[4] Jenkins Project, "Pipeline Syntax," www.jenkins.io/doc, accessed October 2025.  
+[4] Jenkins Project, "Pipeline Syntax," www.jenkins.io/doc/book/pipeline/syntax/, accessed October 2025.  
 [5] Google, "GoogleTest User’s Guide," google.github.io/googletest, accessed October 2025.  
 [6] Google, "gMock for dummies," google.github.io/googletest/gmock_for_dummies.html, accessed October 2025.  
 [7] Gerard Meszaros, *xUnit Test Patterns: Refactoring Test Code*, Addison-Wesley, 2007.  
