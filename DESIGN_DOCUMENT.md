@@ -17,7 +17,7 @@ The framework is designed to be **targeted, lean, solid, and extensible**. Withi
 1.  **Validate Logic in Isolation (Unit Testing):** Create a mechanism to test individual C++ classes and functions, particularly those with complex logic, independent of hardware or other system components.
 2.  **Verify Component Interactions (Software Integration Testing):** Test the interfaces and interaction sequences between key software modules (e.g., the sequence controller and hardware abstraction layers) in a simulated, software-only environment.
 3.  **Establish an Automated Workflow:** Implement a simple, command-line-driven process to build all tests and execute them automatically, providing clear pass/fail feedback.
-4.  **Provide a Foundation for Future Expansion:** The architecture will be designed with clear extension points, allowing for the future integration of more complex simulations, open Continuous Integration (CI/CD) pipelines, and eventually Hardware-in-the-Loop (HIL) testing.[1, 2]
+4.  **Provide a Foundation for Future Expansion:** The architecture will be designed with clear extension points, allowing for the future integration of more complex simulations, open Continuous Integration (CI/CD) pipelines, and eventually Hardware-in-the-Loop (HIL) testing.[2]
 
 #### 1.3 Non-Goals (Out of Scope for 4-Day Plan)
 To ensure focus and successful delivery, the following are explicitly out of scope for this initial implementation:
@@ -107,7 +107,7 @@ This foundational framework is designed to grow through open collaboration. The 
 *   **Community Contributions:** The open and modular design will allow the community to contribute new mock hardware components, expand test coverage, and integrate with other open-source tools.
 *   **Expanded Mock Capabilities:** The mock hardware can be enhanced to simulate error conditions (e.g., a motor failing to respond) or to return simulated sensor data, allowing for more robust testing of the control software's error handling and data processing logic.
 *   **Static Analysis Integration:** Open-source static analysis tools can be added to the automation script to check for code quality and compliance with community standards before the unit tests are run.[10]
-*   **Path to Hardware-in-the-Loop (HIL):** The hardware abstraction layer provides the perfect seam for introducing HIL simulation. The mock objects can be replaced with components that communicate with a real-time HIL simulator, allowing the same control software to be tested against a high-fidelity virtual model of the physical system.[1, 2]
+*   **Path to Hardware-in-the-Loop (HIL):** The hardware abstraction layer provides the perfect seam for introducing HIL simulation. The mock objects can be replaced with components that communicate with a real-time HIL simulator, allowing the same control software to be tested against a high-fidelity virtual model of the physical system.[2]
 
 ### 5. Conclusion
 
@@ -115,13 +115,13 @@ By the end of this focused four-day effort, we will have a lean, solid, and auto
 
 ### References
 
-[1] Martin Fowler, ["The Practical Test Pyramid"](https://martinfowler.com/articles/practical-test-pyramid.html), martinfowler.com, 2018.  
-[2] National Instruments, ["What Is Hardware-in-the-Loop (HIL) Testing?"](https://www.ni.com/en/innovations/white-papers/06/hardware-in-the-loop--hil--testing.html), ni.com, accessed October 2025.  
-[3] GitLab Documentation, ["CI/CD Pipelines"](https://docs.gitlab.com/ee/ci/pipelines/), docs.gitlab.com, accessed October 2025.  
-[4] Jenkins Project, ["Pipeline Syntax"](https://www.jenkins.io/doc/book/pipeline/syntax/), jenkins.io, accessed October 2025.  
-[5] Google, ["GoogleTest User’s Guide"](https://google.github.io/googletest), google.github.io, accessed October 2025.  
-[6] Google, ["gMock for dummies"](https://google.github.io/googletest/gmock_for_dummies.html), google.github.io, accessed October 2025.  
-[7] Gerard Meszaros, *xUnit Test Patterns: Refactoring Test Code*, Addison-Wesley, 2007.  
-[8] Vladimir Khorikov, *Unit Testing Principles, Practices, and Patterns*, Manning Publications, 2020.  
-[9] Craig Scott, *Professional CMake: A Practical Guide*, Crascit, 2023.  
+[1] Martin Fowler, ["The Practical Test Pyramid"](https://martinfowler.com/articles/practical-test-pyramid.html), martinfowler.com, 2018.
+[2] National Instruments, ["What Is Hardware-in-the-Loop (HIL) Testing?"](https://www.ni.com/en/innovations/white-papers/06/hardware-in-the-loop--hil--testing.html), ni.com, accessed October 2025.
+[3] GitLab Documentation, ["CI/CD Pipelines"](https://docs.gitlab.com/ee/ci/pipelines/), docs.gitlab.com, accessed October 2025.
+[4] Jenkins Project, ["Pipeline Syntax"](https://www.jenkins.io/doc/book/pipeline/syntax/), jenkins.io, accessed October 2025.
+[5] Google, ["GoogleTest User’s Guide"](https://google.github.io/googletest), google.github.io, accessed October 2025.
+[6] Google, ["gMock for dummies"](https://google.github.io/googletest/gmock_for_dummies.html), google.github.io, accessed October 2025.
+[7] Gerard Meszaros, *xUnit Test Patterns: Refactoring Test Code*, Addison-Wesley, 2007.
+[8] Vladimir Khorikov, *Unit Testing Principles, Practices, and Patterns*, Manning Publications, 2020.
+[9] Craig Scott, *Professional CMake: A Practical Guide*, Crascit, 2023.
 [10] SourceForge, ["Cppcheck – A tool for static C/C++ code analysis"](https://cppcheck.sourceforge.net), cppcheck.sourceforge.net, accessed October 2025.
