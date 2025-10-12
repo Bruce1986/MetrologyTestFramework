@@ -124,4 +124,4 @@ By the end of this focused four-day effort, we will have a lean, solid, and auto
 [7] Gerard Meszaros, *xUnit Test Patterns: Refactoring Test Code*, Addison-Wesley, 2007.  
 [8] Vladimir Khorikov, *Unit Testing Principles, Practices, and Patterns*, Manning Publications, 2020.  
 [9] Craig Scott, *Professional CMake: A Practical Guide*, Crascit, 2023.  
-[10] SourceForge, ["Cppcheck – A tool for static C/C++ code analysis"](https://cppcheck.sourceforge.net), sourceforge.net, accessed October 2025.
+[10] SourceForge, ["Cppcheck – A tool for static C/C++ code analysis"](https://cppcheck.sourceforge.net), cppcheck.sourceforge.net, accessed October 2025.
