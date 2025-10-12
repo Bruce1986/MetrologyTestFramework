@@ -115,13 +115,13 @@ By the end of this focused four-day effort, we will have a lean, solid, and auto
 
 ### References
 
-[1] Martin Fowler, "The Practical Test Pyramid," [martinfowler.com](https://martinfowler.com/articles/practical-test-pyramid.html), 2018.  
-[2] National Instruments, "What Is Hardware-in-the-Loop (HIL) Testing?," [ni.com](https://www.ni.com/en/innovations/white-papers/06/hardware-in-the-loop--hil--testing.html), accessed October 2025.  
-[3] GitLab Documentation, "CI/CD Pipelines," [docs.gitlab.com](https://docs.gitlab.com/ee/ci/pipelines/), accessed October 2025.  
-[4] Jenkins Project, "Pipeline Syntax," [www.jenkins.io/doc/book/pipeline/syntax/](https://www.jenkins.io/doc/book/pipeline/syntax/), accessed October 2025.  
-[5] Google, "GoogleTest User’s Guide," [google.github.io/googletest](https://google.github.io/googletest), accessed October 2025.  
-[6] Google, "gMock for dummies," [google.github.io/googletest/gmock_for_dummies.html](https://google.github.io/googletest/gmock_for_dummies.html), accessed October 2025.  
+[1] Martin Fowler, ["The Practical Test Pyramid"](https://martinfowler.com/articles/practical-test-pyramid.html), martinfowler.com, 2018.  
+[2] National Instruments, ["What Is Hardware-in-the-Loop (HIL) Testing?"](https://www.ni.com/en/innovations/white-papers/06/hardware-in-the-loop--hil--testing.html), ni.com, accessed October 2025.  
+[3] GitLab Documentation, ["CI/CD Pipelines"](https://docs.gitlab.com/ee/ci/pipelines/), docs.gitlab.com, accessed October 2025.  
+[4] Jenkins Project, ["Pipeline Syntax"](https://www.jenkins.io/doc/book/pipeline/syntax/), jenkins.io, accessed October 2025.  
+[5] Google, ["GoogleTest User’s Guide"](https://google.github.io/googletest), google.github.io, accessed October 2025.  
+[6] Google, ["gMock for dummies"](https://google.github.io/googletest/gmock_for_dummies.html), google.github.io, accessed October 2025.  
 [7] Gerard Meszaros, *xUnit Test Patterns: Refactoring Test Code*, Addison-Wesley, 2007.  
 [8] Vladimir Khorikov, *Unit Testing Principles, Practices, and Patterns*, Manning Publications, 2020.  
 [9] Craig Scott, *Professional CMake: A Practical Guide*, Crascit, 2023.  
-[10] SourceForge, "Cppcheck – A tool for static C/C++ code analysis," [cppcheck.sourceforge.net](https://cppcheck.sourceforge.net), accessed October 2025.
+[10] SourceForge, ["Cppcheck – A tool for static C/C++ code analysis"](https://cppcheck.sourceforge.net), sourceforge.net, accessed October 2025.
