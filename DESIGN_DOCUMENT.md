@@ -58,7 +58,7 @@ The framework will be built on a layered testing approach, focusing on the first
     1.  Set up the project structure, including separate directories for source code (`src`), test code (`tests`), and build outputs.
     2.  Configure the toolchain (compiler, linker).
     3.  Create the primary `CMakeLists.txt` file to build a placeholder application.
-    4.  Download and integrate the Google Test framework into the CMake build system.[9]
+    4.  Integrate the Google Test framework into the CMake build system, preferably using `FetchContent` for automatic download and configuration.[9]
     5.  Write a single "Hello World" unit test to verify that the framework is correctly configured, can be compiled, and executed successfully.
 
 #### **Day 2: Unit Testing the Core Logic**
