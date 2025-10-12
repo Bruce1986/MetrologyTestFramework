@@ -85,7 +85,7 @@ The framework will be built on a layered testing approach, focusing on the first
 #### **Day 4: Automation & Extensibility**
 *   **Objective:** Turn the collection of tests into an automated, easy-to-use framework and document its usage for an open-source audience.
 *   **Tasks:**
-    1.  Create a master script (e.g., `run_all_tests.sh`) that automates the entire process:
+    1.  Create a master script (e.g., run_tests.py or by leveraging ctest) that automates the entire process:
         *   Invokes CMake to configure the build.
         *   Builds all test executables.
         *   Runs all test executables.
