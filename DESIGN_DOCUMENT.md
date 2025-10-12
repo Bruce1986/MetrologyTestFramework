@@ -103,7 +103,7 @@ The framework will be built on a layered testing approach, focusing on the first
 
 This foundational framework is designed to grow through open collaboration. The following are clear next steps that can be built upon the work completed in these four days:
 
-*   **CI/CD Integration:** The test automation script (e.g., `run_tests.sh` or by leveraging `ctest`) can be directly called from a public CI/CD tool like GitLab CI or GitHub Actions to trigger automated testing on every code commit and pull request.[^3]
+*   **CI/CD Integration:** The test automation script (e.g., `run_tests.sh`) can be directly called from a public CI/CD tool like GitLab CI or GitHub Actions to trigger automated testing on every code commit and pull request.[^3]
 *   **Community Contributions:** The open and modular design will allow the community to contribute new mock hardware components, expand test coverage, and integrate with other open-source tools.
 *   **Expanded Mock Capabilities:** The mock hardware can be enhanced to simulate error conditions (e.g., a motor failing to respond) or to return simulated sensor data, allowing for more robust testing of the control software's error handling and data processing logic.
 *   **Static Analysis Integration:** Open-source static analysis tools can be added to the automation script to check for code quality and compliance with community standards before the unit tests are run.[^10]
