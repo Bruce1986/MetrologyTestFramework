@@ -75,7 +75,7 @@ The framework will be built on a layered testing approach, focusing on the first
 #### **Day 3: Hardware Mocking & Integration Testing**
 *   **Objective:** Verify the interaction between the control logic (the sequence interpreter) and the hardware abstraction layer.
 *   **Tasks:**
-    1.  Define and implement simple mock C++ classes for key hardware peripherals, such as `MockMotionAxis`, `MockShutter`, and `MockCamera`.[7, 8] These classes will share the same interface as the real hardware drivers.
+    1.  Define and implement mock classes for key hardware peripherals, such as `MockMotionAxis`, `MockShutter`, and `MockCamera`, using Google Mock (gMock).[7, 8] These classes will share the same interface as the real hardware drivers.
     2.  The mock classes should, at a minimum, record the sequence of function calls made to them.
     3.  Write a new software integration test suite.
     4.  In these tests, instantiate the real sequence interpreter component but provide it with instances of the mock hardware classes.
