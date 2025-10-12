@@ -20,7 +20,7 @@ This handbook outlines how contributors coordinate work on the Metrology Test Fr
    git checkout -b feature/<short-description>
    ```
 2. Write descriptive commit messages that capture the “why” as well as the “what”. Keep commits focused and logically scoped.
-3. Update the shared worklog (e.g., `WORKLOG.md` or team journal) before each commit with a short note covering what changed, what is in progress, and any open questions.
+3. Update the shared `WORKLOG.md` file before each commit with a short note covering what changed, what is in progress, and any open questions.
 4. Open a pull request when the branch is ready for review. Use the format:
    ```
    [Type] Brief summary (#TaskID)
