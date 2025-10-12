@@ -85,11 +85,11 @@ The framework will be built on a layered testing approach, focusing on the first
 #### **Day 4: Automation & Extensibility**
 *   **Objective:** Turn the collection of tests into an automated, easy-to-use framework and document its usage for an open-source audience.
 *   **Tasks:**
-    1.  Create a master script (e.g., run_tests.py or by leveraging ctest) that automates the entire process:
-        *   Invokes CMake to configure the build.
-        *   Builds all test executables.
-        *   Runs all test executables.
-        *   Checks the exit code of each test executable and provides a clear, final summary (e.g., "ALL TESTS PASSED" or "ERROR: Test failures detected").
+    1.  Create a top-level automation script (e.g., 'run_tests.sh') that orchestrates the build and test process using standard tools:
+        *   Invokes CMake to configure the project (e.g., 'cmake -B build').
+        *   Invokes the build tool via CMake to compile all targets (e.g., 'cmake --build build').
+        *   Invokes CTest to execute the test suite (e.g., 'cd build && ctest').
+        *   The script will check the exit code of each step and provide a final summary (e.g., "ALL TESTS PASSED" or "ERROR: Test failures detected").
     2.  Write a user-facing `README.md` file for the test framework (separate from this design document), explaining:
         *   The project's open-source goals.
         *   How to build and run the tests.
