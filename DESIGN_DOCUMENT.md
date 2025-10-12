@@ -32,7 +32,7 @@ To ensure focus and successful delivery, the following are explicitly out of sco
 
 ### 2. Core Architecture & Technology Choices
 
-The framework will be built on a layered testing approach, focusing on the first two layers of the software testing pyramid: Unit and Integration tests. We will prioritize the use of well-supported, open-source tools to foster a collaborative development environment.
+The framework will be built on a layered testing approach, focusing on the first two layers of the software testing pyramid: Unit and Integration tests.[1] We will prioritize the use of well-supported, open-source tools to foster a collaborative development environment.
 
 #### 2.1 Key Components
 
