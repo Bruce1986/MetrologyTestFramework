@@ -88,7 +88,7 @@ The framework will be built on a layered testing approach, focusing on the first
     1.  Create a top-level automation script (e.g., 'run_tests.sh') that orchestrates the build and test process using standard tools:
         *   Invokes CMake to configure the project (e.g., 'cmake -B build').
         *   Invokes the build tool via CMake to compile all targets (e.g., 'cmake --build build').
-        *   Invokes CTest to execute the test suite (e.g., 'ctest --test-dir build').
+        *   Invokes the build tool via CMake to run the test suite (e.g., 'cmake --build build --target test').
         *   The script will check the exit code of each step and provide a final summary (e.g., "ALL TESTS PASSED" or "ERROR: Test failures detected").
     2.  Write a user-facing `README.md` file for the test framework (separate from this design document), explaining:
         *   The project's open-source goals.
