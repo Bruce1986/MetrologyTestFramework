@@ -69,11 +69,11 @@ The framework will be built on a layered testing approach, focusing on the first
     1.  Identify a specific function or class in the sequence interpreter to test.
     2.  Refactor the code if necessary to allow its dependencies to be replaced by mocks (Dependency Injection).
         *   **Risk Note:** Refactoring legacy or tightly coupled code could exceed the planned effort. Allocate buffer time or prepare a contingency plan (e.g., limiting scope to a smaller component) if deeper restructuring is required.
-    3.  Write a suite of unit tests using Google Test to cover various scenarios:
+    3.  Establish a `tests/data/` directory to store representative recipe inputs as files. This simplifies test maintenance and future expansion by contributors.
+    4.  Write a suite of unit tests using Google Test that loads recipe artifacts from the `tests/data/` directory to cover various scenarios:
         *   Test with a standard, valid input recipe and assert that the correct sequence of actions is generated.
         *   Test with edge cases (e.g., an empty recipe).
         *   Test with invalid inputs and assert that appropriate errors are handled.
-    4.  Establish a `tests/data/` directory to store representative recipe inputs as files. Update tests to load these artifacts instead of hardcoding them, simplifying future expansion by contributors.
 
 #### **Day 3: Hardware Mocking & Integration Testing**
 *   **Objective:** Verify the interaction between the control logic (the sequence interpreter) and the hardware abstraction layer.
