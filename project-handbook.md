@@ -1,123 +1,64 @@
-# 🛠 專案名稱 - 開發協作手冊
+# Metrology Test Framework – Collaboration Handbook
 
-## 📋 目錄
-1. [任務分工與進度追蹤](#任務分工與進度追蹤)
-2. [Git 開發流程與規範](#git-開發流程與規範)
-3. [程式碼撰寫與 Review 注意事項](#程式碼撰寫與-review-注意事項)
-4. [每日工作日誌區塊](#每日工作日誌區塊)
-5. [資源與文件連結](#資源與文件連結)
+This handbook outlines how contributors coordinate work on the Metrology Test Framework. It complements the design document and contributing guide with practical, day-to-day expectations.
 
----
+## 1. Task Planning and Status Tracking
 
-## 🧱 任務分工與進度追蹤
+| Task ID | Description | Owner | Status | Notes |
+|---------|-------------|-------|--------|-------|
+| #001    | Example task description | —     | ⏳ Not started | Replace with project-specific tasks |
 
-| 任務編號 | 功能說明             | 負責人 | 狀態         | 備註 |
-|----------|----------------------|--------|--------------|------|
-| #001     | 登入畫面切版         | A      | ✅ 完成       |      |
-| #002     | Google 登入串接      | B      | 🟡 進行中     | 依賴 #001 |
-| #003     | API Token 機制       | B      | ⏳ 待開始     |      |
+**Status legend:** ⏳ Not started · 🟡 In progress · 🔍 In review · ✅ Done.
 
-- 狀態建議使用：⏳ 待開始｜🟡 進行中｜🔍 審核中｜✅ 完成
+- Document your active tasks in the repository issue tracker or shared planning board.
+- Include the relevant task or issue ID in commit messages and pull request descriptions to keep traceability clear.
 
----
+## 2. Git Workflow and Pull Requests
 
-## 🌱 Git 開發流程與規範
-
-1. 每項任務請建立 feature branch，例如：
+1. Create a topic branch for every change:
    ```bash
-   git checkout -b feature/login-ui
+   git checkout -b feature/<short-description>
    ```
-
-2. 完成後發起 Pull Request（PR），標題格式：
-
+2. Write descriptive commit messages that capture the “why” as well as the “what”. Keep commits focused and logically scoped.
+3. Update the shared worklog (e.g., `WORKLOG.md` or team journal) before each commit with a short note covering what changed, what is in progress, and any open questions.
+4. Open a pull request when the branch is ready for review. Use the format:
    ```
-   [Feature] 登入頁面切版 (#001)
+   [Type] Brief summary (#TaskID)
    ```
-3. 不能直接 push 到 `main` 分支，需透過 PR。
-4. PR 提交後需指派另一位協作者進行 Review。
-5. 合併前務必確認：
+   Examples: `[Feature] Add sensor mock (#014)`, `[Fix] Stabilize build on GCC 12 (#082)`.
+5. Fill in the pull request template with:
+   - A concise summary of the change.
+   - Links to related tasks or issues.
+   - Test evidence (command output, screenshots, etc.).
+6. Request at least one reviewer and respond to all feedback (from humans or automated reviewers) before merging.
 
-   * ✅ 沒有衝突
-   * ✅ 已自我測試過
-   * ✅ 遵守命名與格式規範
+## 3. Coding and Review Checklist
 
----
+Use this checklist before requesting a review:
 
-## 🧠 程式碼撰寫與 Review 注意事項
+- [ ] Names are intention-revealing (functions use verb phrases such as `calculateOffsets`).
+- [ ] Error handling and logging paths are covered where applicable.
+- [ ] New functionality includes accompanying Google Test unit tests.
+- [ ] Documentation (README, design docs, inline comments) has been updated.
+- [ ] `./run_tests.sh` completes successfully and its output is attached to the pull request.
+- [ ] Known follow-ups or limitations are captured in issues or TODO comments.
 
-### 🧹 命名原則
+## 4. Daily Worklog Template
 
-* 變數需有語意：`userInfo` 不要寫成 `x`
-* 函式命名盡量是動詞開頭，如 `getUserInfo`
-
-### 🛡 程式邏輯
-
-* 防呆與錯誤處理要寫清楚（例如登入錯誤的提示）
-* 不要留死 code
-* API 錯誤時要 console log 錯誤資訊
-
-### 👀 Review 時要看的事
-
-* [ ] 功能是否如預期運作？
-* [ ] 是否有不合理命名？
-* [ ] 是否有簡化空間或可讀性問題？
-* [ ] 有無潛在 Bug（如未處理 null）？
-* [ ] 結尾是否有自我測試結果備註？
-
----
-
-## 🗓 每次工作日誌區塊
-
-> 請每次 commit 前更新一次，記錄格式如下：
+Keep your teammates informed by logging progress. Use the template below when updating the shared worklog prior to each commit or at the end of the day:
 
 ```markdown
-### 🙋‍♂️ A 的日誌（2025/07/08）
-- ✅ 完成：登入畫面切版（#001）
-- 🟡 進行中：樣式微調、RWD 修正
-- 🤔 問題：尚未確定登入按鈕顏色是否符合設計稿
-
-### 🧑‍💻 B 的日誌（2025/07/08）
-- ✅ 完成：API token 的初步設計草圖
-- ⏳ 明日計畫：串接登入按鈕與 token API
-- 🙋 想問：Login API 回傳錯誤格式是否統一？
+### <Your Name>'s log (YYYY/MM/DD)
+- ✅ Completed: …
+- 🟡 In progress: …
+- 🤔 Blockers / questions: …
+- ⏭️ Next steps: …
 ```
 
----
+## 5. Resources
 
-## 📚 資源與文件連結
+- Design document: [`DESIGN_DOCUMENT.md`](DESIGN_DOCUMENT.md)
+- Contribution guidelines: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Repository README: [`README.md`](README.md)
 
-* 🔗 Figma 設計稿：[點我前往](https://figma.com/xxxx)
-* 🔗 API 文件連結：[Swagger Docs](http://localhost:8000/docs)
-* 🔗 技術指南 / Code Style：[點我查看](https://github.com/你的組織/code-style-guide)
-
----
-
-## 📌 補充：兩人協作小叮嚀
-
-* **如果卡住，請互相支援或寫日誌記錄問題點，等老闆回來再補救**
-* **分工明確，避免同時改動同一檔案造成衝突**
-* **即使只是小改動，也請走 PR 流程，養成良好習慣**
-
----
-
-## 🏁 TODO 清單樣板（可複製貼上）
-
-```markdown
-- [ ] 任務說明：
-- [ ] 建立分支：
-- [ ] 自我測試情境：
-- [ ] 需他人 Review 項目：
-- [ ] 文件是否補上：
-```
-
----
-
-## 🧰 建議檔名：`project-handbook.md` 或 `開發協作手冊.md`
-
----
-
-這樣設計的優點是：
-
-* **透明可見**：不在時，也能清楚該怎麼協作與更新。
-* **低門檻維護**：全用文字就能同步，不需額外學工具。
-* **便於版本控管**：放在專案根目錄，搭配 Git 使用。
+Please keep this handbook up to date as workflows evolve. Consistent documentation ensures a smooth onboarding experience for all contributors.

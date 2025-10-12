@@ -9,13 +9,15 @@ Thank you for your interest in helping build a reliable, open-source metrology t
 
 ## 2. Workflow & Branching
 - Create a feature branch for every task. Use a descriptive name such as `feature/<short-description>`.
-- Follow the pull request workflow outlined in [`project-handbook.md`](project-handbook.md). Include references to issue or task IDs when available.
-- Keep commits focused. Update the shared worklog templates in the handbook before each commit, as required by the project guidelines.
+- Capture the intent of each commit and keep them focused. Update the shared worklog described in [`project-handbook.md`](project-handbook.md) before each commit so teammates can follow your progress.
+- When opening a pull request, follow the handbook’s guidance: include the related issue or task ID in the title (e.g., `[Feature] Add calibration mocks (#042)`), summarize the change, and attach links to supporting discussions.
+- Request at least one reviewer and respond to all feedback, including suggestions from automated reviewers such as Gemini Code Assist, before merging.
 
 ## 3. Coding Standards & Testing
 - Write clear, intention-revealing identifiers. Functions should be verb-oriented (e.g., `calculateOffsets`).
 - Add or update Google Test unit tests for every new function or behavior change. If adding a test is impractical, explain why in the pull request discussion.
-- Run the CMake build (`cmake -B build && cmake --build build`) and execute the test suite (`ctest --test-dir build --output-on-failure`) before submitting a pull request.
+- Use the project’s automation script to validate your change: `./run_tests.sh`. This script configures CMake, builds the project, and executes the test suite in one step.
+- If the script is temporarily unavailable, run `cmake -B build && cmake --build build` followed by `ctest --test-dir build --output-on-failure` and note the fallback in your pull request.
 
 ## 4. Dependency Management
 - Declare all third-party dependencies through centralized CMake modules (e.g., `cmake/Dependencies.cmake`). Use `find_package` first; fall back to `FetchContent` only when necessary.
