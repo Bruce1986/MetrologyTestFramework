@@ -47,6 +47,7 @@ The framework will be built on a layered testing approach, focusing on the first
 3.  **Build & Automation System**
     *   **Description:** We will use CMake, an open-source build system, to manage the build process for both the main application and the test suite. A simple shell or Python script will serve as the test runner, orchestrating the build and execution steps.
     *   **Justification:** CMake is the de facto standard for cross-platform C++ projects and integrates well with Google Test. A simple script is sufficient for initial automation and provides a clear entry point for future CI/CD integration.[^3]
+    *   **Initial Target Platform:** To guarantee a stable baseline within the 4-day sprint, all build scripts and documentation will target **Ubuntu 22.04 LTS (x86_64) using GCC 11 and CMake ≥ 3.22**. Configuration notes for **Windows 10 with MSVC 2022** will be captured as a follow-up item so that cross-platform support can expand methodically without jeopardizing short-term reproducibility.
 
 ---
 
@@ -61,6 +62,7 @@ The framework will be built on a layered testing approach, focusing on the first
     4.  Integrate the Google Test framework into the CMake build system, preferably using `FetchContent` for automatic download and configuration. This includes enabling CMake's test runner (`ctest`) by calling `enable_testing()`.[^9]
     5.  Write a single "Hello World" unit test and add it to the test suite (e.g., using `gtest_discover_tests`) to verify it can be executed via `ctest`.
     6.  Select an open-source license (e.g., MIT, Apache 2.0, GPL) that aligns with the project's goals and add the corresponding `LICENSE` file to the repository.
+    7.  Document the strategy for managing external software dependencies needed by the main application within the test build. This includes centralizing `find_package` calls in a `cmake/Dependencies.cmake` module, defining stub/mock replacements when vendor libraries are unavailable, and evaluating lightweight package managers (e.g., vcpkg or Conan) for longer-term sustainability.
 
 #### **Day 2: Unit Testing the Core Logic**
 *   **Objective:** Validate the correctness of a critical, logic-heavy software component in isolation.
@@ -97,8 +99,9 @@ The framework will be built on a layered testing approach, focusing on the first
         *   The project's open-source goals.
         *   How to build and run the tests.
         *   How to add a new unit test.
-        *   How to contribute to the project.
-    3.  Clean up the code and add comments, specifically highlighting the extension points for future development.
+        *   How to contribute to the project (with a concise summary that links to the dedicated contribution guide).
+    3.  Author a comprehensive `CONTRIBUTING.md` file that captures coding standards, branching strategy, dependency management expectations, and the pull request review checklist so community members can follow a consistent workflow.
+    4.  Clean up the code and add comments, specifically highlighting the extension points for future development.
 
 ---
 
