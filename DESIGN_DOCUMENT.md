@@ -47,7 +47,7 @@ The framework will be built on a layered testing approach, focusing on the first
 3.  **Build & Automation System**
     *   **Description:** We will use CMake, an open-source build system, to manage the build process for both the main application and the test suite. A simple shell or Python script will serve as the test runner, orchestrating the build and execution steps.
     *   **Justification:** CMake is the de facto standard for cross-platform C++ projects and integrates well with Google Test. A simple script is sufficient for initial automation and provides a clear entry point for future CI/CD integration.[^3]
-    *   **Initial Target Platform:** To guarantee a stable baseline within the 4-day sprint, all build scripts and documentation will target **Ubuntu 22.04 LTS (x86_64) using GCC 11 and CMake ≥ 3.22**. Configuration notes for **Windows 10 with MSVC 2022** will be captured as a follow-up item so that cross-platform support can expand methodically without jeopardizing short-term reproducibility.
+    *   **Initial Target Platform:** To guarantee a stable baseline within the 4-day sprint, all build scripts and documentation will target **Ubuntu 22.04 LTS (x86_64) using GCC 11 and CMake >= 3.22**. Configuration notes for **Windows 10 with MSVC 2022** will be captured as a follow-up item so that cross-platform support can expand methodically without jeopardizing short-term reproducibility.
 
 ---
 
