@@ -13,9 +13,9 @@ the current date.
 ---
 
 ### 🙋 Contributor Name（YYYY/MM/DD）
-- ✅ 完成：
-- 🛠️ 進行中：
-- ❓ 問題 / 需要協助：
+- ✅ **Completed**:
+- 🛠️ **In Progress**:
+- ❓ **Open Questions / Blockers**:
 
 ---
 
