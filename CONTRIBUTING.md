@@ -19,7 +19,7 @@ Thank you for your interest in helping build a reliable, open-source metrology t
 - Write clear, intention-revealing identifiers. Functions should be verb-oriented (e.g., `calculateOffsets`).
 - Add or update Google Test unit tests for every new function or behavior change. If adding a test is impractical, explain why in the pull request discussion.
 - Use the project’s automation script to validate your change: `./run_tests.sh`. This script configures CMake, builds the project, and executes the test suite in one step.
-- If the script is temporarily unavailable, run `cmake -B build && cmake --build build && ctest --test-dir build --output-on-failure` and note the fallback in your pull request.
+- If the script is temporarily unavailable, run `cmake -B build && cmake --build build --parallel && ctest --test-dir build --output-on-failure` and note the fallback in your pull request.
 
 ## 4. Dependency Management
 - Declare all third-party dependencies through centralized CMake modules (e.g., `cmake/Dependencies.cmake`). Use `find_package` first; fall back to `FetchContent` only when necessary.
