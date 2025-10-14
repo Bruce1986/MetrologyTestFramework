@@ -36,6 +36,7 @@ Thank you for your interest in helping build a reliable, open-source metrology t
 - [ ] New functionality includes accompanying Google Test unit tests.
 - [ ] Documentation (README, design docs, inline comments) has been updated.
 - [ ] `./run_tests.sh` completes successfully and its output is attached to the pull request.
+- [ ] New dependencies are documented and follow project guidelines.
 - [ ] Known follow-ups or limitations are captured in issues or TODO comments.
 
 We appreciate your contributions and commitment to open metrology tooling!
