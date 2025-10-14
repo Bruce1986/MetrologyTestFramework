@@ -5,6 +5,7 @@ Thank you for your interest in helping build a reliable, open-source metrology t
 ## 1. Development Environment
 - **Primary reference platform:** Ubuntu 22.04 LTS (x86_64) with GCC 11, CMake ≥ 3.22, and Ninja.
 - **Secondary platform notes:** Document any Windows 10 + MSVC 2022 considerations you encounter so that we can expand official support incrementally.
+- **macOS support status:** Currently untested. Contributors working on macOS should record any required toolchains, build flags, or issues so the team can assess and document official support.
 - Refer to [`DESIGN_DOCUMENT.md`](DESIGN_DOCUMENT.md) for details on the project's architecture, structure, and implementation plan for the initial sprint.
 
 ## 2. Workflow & Branching
