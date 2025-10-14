@@ -108,7 +108,7 @@ The framework will be built on a layered testing approach, focusing on the first
         *   How to build and run the tests.
         *   How to add a new unit test.
         *   How to contribute to the project (with a concise summary that links to the dedicated contribution guide).
-    3.  Author a comprehensive `CONTRIBUTING.md` file that captures coding standards, branching strategy, dependency management expectations, and the pull request review checklist so community members can follow a consistent workflow.
+    3.  Review and finalize the comprehensive `CONTRIBUTING.md` file that captures coding standards, branching strategy, dependency management expectations, and the pull request review checklist so community members can follow a consistent workflow.
     4.  Clean up the code and add comments, specifically highlighting the extension points for future development.
 
 ---
