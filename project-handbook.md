@@ -26,7 +26,7 @@ This handbook is a quick reference for the core maintainers of the Metrology Tes
 
 ## 3. Collaboration Rhythm
 
-- **Pull requests:** Confirm the checklist in [`CONTRIBUTING.md`](CONTRIBUTING.md#5-documentation--review) before requesting a review. Doing so keeps the review queue flowing smoothly.
+- **Pull requests:** Confirm the checklist in [`CONTRIBUTING.md`](CONTRIBUTING.md#6-review-checklist) before requesting a review. Doing so keeps the review queue flowing smoothly.
 - **Review rotation:** Aim to review at least one teammate’s pull request for every change you merge. Mention open questions in the pull request discussion rather than private channels so the project history remains discoverable.
 - **Pairing and support:** If you are blocked for more than one working day, ask for help in the worklog or project chat and flag the issue in the relevant task.
 
