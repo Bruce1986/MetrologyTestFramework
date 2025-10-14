@@ -9,13 +9,12 @@ This handbook is a quick reference for the core maintainers of the Metrology Tes
 
 ## 1. Task Planning and Status Tracking
 
-| Task ID | Description | Owner | Status | Notes |
-|---------|-------------|-------|--------|-------|
-| #001    | Example task description | —     | ⏳ Not started | Replace with project-specific tasks |
+Tasks are tracked in the repository's issue tracker, which serves as the single source of truth for ownership and progress. Use labels or project boards within the tracker to represent statuses such as ⏳ Not started, 🟡 In progress, 🔍 In review, and ✅ Done.
 
-**Status legend:** ⏳ Not started · 🟡 In progress · 🔍 In review · ✅ Done.
+Please ensure the following:
 
-- Keep the task board synchronized with the repository issue tracker or shared planning board.
+- The issue tracker is updated promptly when work starts, pauses, or completes.
+- Related discussions, dependencies, and hand-offs are captured directly on the issue so they remain discoverable.
 - Reference the associated task or issue ID in commit messages and pull request descriptions to maintain traceability.
 
 ## 2. Daily Sync and Worklog Updates
