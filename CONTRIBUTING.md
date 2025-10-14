@@ -9,9 +9,10 @@ Thank you for your interest in helping build a reliable, open-source metrology t
 
 ## 2. Workflow & Branching
 - Create a feature branch for every task. Use a descriptive name such as `feature/<short-description>`.
-- Capture the intent of each commit and keep them focused. Update the shared worklog as detailed in [`project-handbook.md`](project-handbook.md) before each commit so teammates can follow your progress.
-- When opening a pull request, follow the handbook’s guidance: include the related issue or task ID in the title (e.g., `[Feature] Add calibration mocks (#042)`), summarize the change, and attach links to supporting discussions.
+- Capture the intent of each commit and keep them focused. Update the shared worklog as detailed in [`WORKLOG.md`](WORKLOG.md) before each commit so teammates can follow your progress.
+- When opening a pull request, format the title as `[Type] Brief summary (#TaskID)` (for example, `[Feature] Add calibration mocks (#042)`). Summarize the change, link related discussions or issues, and attach evidence of self-testing.
 - Request at least one reviewer and respond to all feedback, including suggestions from automated reviewers such as Gemini Code Assist, before merging.
+- Document active tasks in the issue tracker or shared planning board so the team can monitor ownership and dependencies.
 
 ## 3. Coding Standards & Testing
 - Write clear, intention-revealing identifiers. Functions should be verb-oriented (e.g., `calculateOffsets`).
@@ -28,5 +29,13 @@ Thank you for your interest in helping build a reliable, open-source metrology t
 - Update relevant documentation (README, design docs, diagrams) alongside code changes.
 - Respond thoughtfully to all review feedback, including automated reviewers such as Gemini Code Assist. If you choose not to implement a suggestion, document the rationale in the pull request.
 - Provide self-test evidence in the pull request description so reviewers can validate your changes quickly.
+
+## 6. Review Checklist
+- [ ] Names are intention-revealing (functions use verb phrases such as `calculateOffsets`).
+- [ ] Error handling and logging paths are covered where applicable.
+- [ ] New functionality includes accompanying Google Test unit tests.
+- [ ] Documentation (README, design docs, inline comments) has been updated.
+- [ ] `./run_tests.sh` completes successfully and its output is attached to the pull request.
+- [ ] Known follow-ups or limitations are captured in issues or TODO comments.
 
 We appreciate your contributions and commitment to open metrology tooling!
