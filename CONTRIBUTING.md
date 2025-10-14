@@ -11,7 +11,7 @@ Thank you for your interest in helping build a reliable, open-source metrology t
 ## 2. Workflow & Branching
 - Create a feature branch for every task. Use a descriptive name such as `feature/<short-description>`.
 - Capture the intent of each commit and keep them focused. Update the shared worklog as detailed in [`WORKLOG.md`](WORKLOG.md) before each commit so teammates can follow your progress.
-- When opening a pull request, format the title as `[Type] Brief summary (#TaskID)` (for example, `[Feature] Add calibration mocks (#042)`). Summarize the change, link related discussions or issues, and attach evidence of self-testing.
+- When opening a pull request, format the title as `[Type] Brief summary (#TaskID)` (for example, `[Feature] Add calibration mocks (#42)`). Common types are `Feature`, `Fix`, `Docs`, `Chore`, etc. Summarize the change, link related discussions or issues, and attach evidence of self-testing.
 - Request at least one reviewer and respond to all feedback, including suggestions from automated reviewers such as Gemini Code Assist, before merging.
 - Document active tasks in the issue tracker or shared planning board so the team can monitor ownership and dependencies.
 
