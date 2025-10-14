@@ -1,0 +1,12 @@
+# Build outputs
+/build/
+
+# CMake cache artifacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+_compile_commands.json
+
+# User-specific files
+*.swp
+.DS_Store
