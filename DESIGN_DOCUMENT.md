@@ -3,6 +3,14 @@
 **Version:** 1.0
 **Date:** October 9, 2025
 **Author:** Bruce1986
+### Table of Contents
+
+1. [Introduction & Goals](#1-introduction--goals)
+2. [Core Architecture & Technology Choices](#2-core-architecture--technology-choices)
+3. [Implementation Plan (4-Day Schedule)](#3-implementation-plan-4-day-schedule)
+4. [Future Extensibility](#4-future-extensibility)
+5. [Conclusion](#5-conclusion)
+6. [References](#references)
 
 ### 1. Introduction & Goals
 
