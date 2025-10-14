@@ -9,8 +9,7 @@ This handbook is a quick reference for the core maintainers of the Metrology Tes
 
 ## 1. Task Planning and Status Tracking
 
-Tasks are tracked in the repository's issue tracker, which serves as the single source of truth for ownership and progress. Use
-labels or project boards within the tracker to represent statuses such as ⏳ Not started, 🟡 In progress, 🔍 In review, and ✅ Done.
+Tasks are tracked in the repository's issue tracker, which serves as the single source of truth for ownership and progress. Use labels or project boards within the tracker to represent statuses such as ⏳ Not started, 🟡 In progress, 🔍 In review, and ✅ Done.
 
 Please ensure the following:
 
