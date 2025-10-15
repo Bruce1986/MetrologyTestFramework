@@ -7,10 +7,8 @@ TEST(FrameworkInfoTest, BannerIsStable) {
 }
 
 TEST(FrameworkInfoTest, VersionFollowsSemverPreRelease) {
-  const std::string_view version = metrology::framework_version();
+  const auto version = metrology::framework_version();
   EXPECT_FALSE(version.empty());
   ASSERT_GE(version.size(), 4u);
-  const std::size_t suffix_position = version.rfind("-dev");
-  ASSERT_NE(suffix_position, std::string::npos);
-  EXPECT_EQ(suffix_position, version.size() - 4);
+  EXPECT_EQ(version.substr(version.size() - 4), "-dev");
 }

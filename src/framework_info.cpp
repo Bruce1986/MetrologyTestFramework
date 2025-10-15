@@ -1,7 +1,5 @@
 #include "framework_info.h"
 
-#include <string>
-
 namespace metrology {
 
 std::string framework_banner() {
