@@ -13,11 +13,12 @@ TEST(FrameworkInfoTest, BannerIsStable) {
   EXPECT_EQ(metrology::framework_banner(), "Metrology Test Framework");
 }
 
-static_assert(
-    [](std::string_view str, std::string_view suffix) constexpr {
-      return str.size() >= suffix.size() &&
-             str.substr(str.size() - suffix.size()) == suffix;
-    }(metrology::kFrameworkVersion, kFrameworkVersionSuffix),
+constexpr auto ends_with = [](std::string_view str, std::string_view suffix) constexpr {
+  return str.size() >= suffix.size() &&
+         str.substr(str.size() - suffix.size()) == suffix;
+};
+
+static_assert(ends_with(metrology::kFrameworkVersion, kFrameworkVersionSuffix),
     "Framework version must end with the '-dev' suffix.");
 
 TEST(FrameworkInfoTest, VersionFollowsSemverPreRelease) {
