@@ -12,6 +12,14 @@ the current date.
 
 ---
 
+### 🙋 AI Assistant (2025/10/17)
+- ✅ **Completed**: Broadened build directory ignore patterns, made gtest CRT configuration opt-in for MSVC users, and routed
+  the CLI banner to standard error per review guidance.
+- 🛠️ **In Progress**: Monitoring further tooling feedback for additional bootstrap hardening opportunities.
+- ❓ **Open Questions / Blockers**: None.
+
+---
+
 ### 🙋 AI Assistant (2025/10/16)
 - ✅ **Completed**: Quoted optional dependency logging, removed a redundant implementation include, and streamlined the version suffix test to avoid allocations.
 - 🛠️ **In Progress**: Auditing remaining review comments for potential follow-up hygiene updates.

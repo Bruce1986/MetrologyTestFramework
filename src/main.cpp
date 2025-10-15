@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-  std::cout << metrology::framework_banner() << " v"
+  std::cerr << metrology::framework_banner() << " v"
             << metrology::framework_version() << '\n';
   return 0;
 }

@@ -12,7 +12,13 @@ else()
       GIT_TAG        v1.15.2
       GIT_SHALLOW    TRUE
     )
-    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    if(MSVC)
+      set(
+        gtest_force_shared_crt
+        ON
+        CACHE BOOL "Force shared CRT for gtest with MSVC"
+      )
+    endif()
     FetchContent_MakeAvailable(googletest)
   endif()
 endif()
