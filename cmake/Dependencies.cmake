@@ -21,6 +21,8 @@ endif()
 # dedicated CMake options. Keep all `find_package` logic and related configuration
 # here so contributors can reason about dependency management in a single file.
 function(metrology_register_optional_dependency dependency_name)
-  message(STATUS "Optional dependency requested: \"${dependency_name}\"")
+  string(REPLACE "\\" "\\\\" _metrology_dependency_display "${dependency_name}")
+  string(REPLACE "\"" "\\\"" _metrology_dependency_display "${_metrology_dependency_display}")
+  message(STATUS "Optional dependency requested: \"${_metrology_dependency_display}\"")
   # Future work: extend this helper to locate vendor libraries or activate mocks.
 endfunction()

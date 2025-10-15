@@ -7,7 +7,7 @@ std::string framework_banner() {
 }
 
 std::string framework_version() {
-  return "0.1.0-dev";
+  return std::string(kFrameworkVersion);
 }
 
 }  // namespace metrology
