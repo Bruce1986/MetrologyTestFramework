@@ -7,12 +7,6 @@ namespace {
 
 inline constexpr std::string_view kFrameworkVersionSuffix{"-dev"};
 
-}  // namespace
-
-TEST(FrameworkInfoTest, BannerIsStable) {
-  EXPECT_EQ(metrology::framework_banner(), "Metrology Test Framework");
-}
-
 constexpr auto ends_with = [](std::string_view str, std::string_view suffix) constexpr {
   return str.size() >= suffix.size() &&
          str.substr(str.size() - suffix.size()) == suffix;
@@ -20,6 +14,12 @@ constexpr auto ends_with = [](std::string_view str, std::string_view suffix) con
 
 static_assert(ends_with(metrology::kFrameworkVersion, kFrameworkVersionSuffix),
     "Framework version must end with the '-dev' suffix.");
+
+}  // namespace
+
+TEST(FrameworkInfoTest, BannerIsStable) {
+  EXPECT_EQ(metrology::framework_banner(), "Metrology Test Framework");
+}
 
 TEST(FrameworkInfoTest, VersionFollowsSemverPreRelease) {
   EXPECT_EQ(metrology::framework_version(), metrology::kFrameworkVersion);
