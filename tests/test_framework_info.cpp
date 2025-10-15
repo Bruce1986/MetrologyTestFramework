@@ -14,13 +14,11 @@ TEST(FrameworkInfoTest, BannerIsStable) {
 }
 
 static_assert(
-    metrology::kFrameworkVersion.size() >= kFrameworkVersionSuffix.size(),
-    "Framework version must include a pre-release suffix.");
-static_assert(
-    metrology::kFrameworkVersion.substr(metrology::kFrameworkVersion.size() -
-                                        kFrameworkVersionSuffix.size()) ==
-        kFrameworkVersionSuffix,
-    "Framework version must end with -dev");
+    [](std::string_view str, std::string_view suffix) constexpr {
+      return str.size() >= suffix.size() &&
+             str.substr(str.size() - suffix.size()) == suffix;
+    }(metrology::kFrameworkVersion, kFrameworkVersionSuffix),
+    "Framework version must end with the '-dev' suffix.");
 
 TEST(FrameworkInfoTest, VersionFollowsSemverPreRelease) {
   EXPECT_EQ(metrology::framework_version(), metrology::kFrameworkVersion);
