@@ -10,5 +10,5 @@ TEST(FrameworkInfoTest, BannerIsStable) {
 TEST(FrameworkInfoTest, VersionFollowsSemverPreRelease) {
   const auto version = metrology::framework_version();
   constexpr std::string_view expected_suffix = "-dev";
-  EXPECT_TRUE(version.ends_with(expected_suffix));
+  EXPECT_THAT(version, ::testing::EndsWith(expected_suffix));
 }
