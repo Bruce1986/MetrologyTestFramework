@@ -6,10 +6,10 @@ TEST(FrameworkInfoTest, BannerIsStable) {
   EXPECT_EQ(metrology::framework_banner(), "Metrology Test Framework");
 }
 
-static_assert(metrology::kFrameworkVersion.size() >= 4,
+static_assert(metrology::kFrameworkVersion.size() >= sizeof("-dev") - 1,
               "Framework version must include a pre-release suffix.");
 static_assert(
-    metrology::kFrameworkVersion.substr(metrology::kFrameworkVersion.size() - 4) == "-dev",
+    metrology::kFrameworkVersion.substr(metrology::kFrameworkVersion.size() - (sizeof("-dev") - 1)) == "-dev",
     "Framework version must end with -dev");
 
 TEST(FrameworkInfoTest, VersionFollowsSemverPreRelease) {
