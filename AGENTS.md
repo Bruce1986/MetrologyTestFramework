@@ -1,5 +1,9 @@
 # Guidelines for Working with AI Assistant Feedback
 
+> **⚠️ PR 自動化提醒**：每次在 GitHub PR 推送（push）commit 後，記得在該 PR 留言 `/Gemini review` 來觸發後續自動化審查流程。
+
+> **🔁 開發審查流程**：程式碼轉寫／撰寫完成後，請**先用本機 `codex` 指令做 review**，依其意見多輪修正；待本機 review 收斂後，**再開 PR 並與 Gemini 進行 review loop**（在 PR 留言 `/Gemini review` 觸發）。
+
 This repository uses **gemini-code-assist** to provide review suggestions. The assistant may also help in verifying adherence to our unit testing standards for new functions.
 Please address all suggestions from the AI assistant. If a suggestion is not implemented, provide a brief justification in the pull request discussion (e.g., as a comment on the pull request itself, or a comment directly on the line of code in question).
 
