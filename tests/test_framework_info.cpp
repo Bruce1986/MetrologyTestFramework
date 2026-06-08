@@ -1,5 +1,6 @@
 #include "framework_info.h"
 
+#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <string_view>
 

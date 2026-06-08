@@ -5,6 +5,7 @@ add_executable(metrology_unit_tests
 target_link_libraries(metrology_unit_tests
   PRIVATE
     metrology_core
+    GTest::gmock
     GTest::gtest_main
 )
 
