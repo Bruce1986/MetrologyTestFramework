@@ -1,6 +1,8 @@
 #include "framework_info.h"
 
+#include <gmock/gmock.h>
 #include <gtest/gtest.h>
+#include <string_view>
 
 TEST(FrameworkInfoTest, BannerIsStable) {
   EXPECT_EQ(metrology::framework_banner(), "Metrology Test Framework");
@@ -8,8 +10,6 @@ TEST(FrameworkInfoTest, BannerIsStable) {
 
 TEST(FrameworkInfoTest, VersionFollowsSemverPreRelease) {
   const auto version = metrology::framework_version();
-  EXPECT_FALSE(version.empty());
-  ASSERT_GE(version.size(), 4u);
-  // Check that the version string ends with "-dev".
-  EXPECT_EQ(version.substr(version.size() - 4), "-dev");
+  constexpr std::string_view expected_suffix = "-dev";
+  EXPECT_THAT(version, ::testing::EndsWith(expected_suffix));
 }
