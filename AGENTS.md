@@ -153,3 +153,71 @@ All new functions must include corresponding unit tests. If unit testing is not 
 * **透明可見**：不在時，也能清楚該怎麼協作與更新。
 * **低門檻維護**：全用文字就能同步，不需額外學工具。
 * **便於版本控管**：放在專案根目錄，搭配 Git 使用。
+
+
+---
+
+## PR Review 自動化循環
+
+收到「抓取 review 意見」或 `/Gemini review` 相關指令後，執行以下循環：
+
+### 步驟
+
+1. **抓取 review comments**
+   - `gh api repos/{owner}/{repo}/pulls/{pr}/comments` 取得 inline comments
+   - `gh api repos/{owner}/{repo}/pulls/{pr}/reviews` 取得 review summary
+   - 篩選 `user.login == "gemini-code-assist[bot]"`
+   - 用時間戳過濾只處理新的 comments
+
+2. **修改程式碼**
+   - 合理建議直接實作
+   - 已被 owner 明確拒絕的建議跳過（查看先前對話紀錄）
+   - 純文件/風格建議也要處理
+
+3. **驗證**
+   - 跑 `ruff check src/ tests/`
+   - 跑 `mypy src/autonomous_agent/`
+   - 跑 `pytest -v`
+   - 三項全部通過才能繼續
+
+4. **Commit & Push**
+   - 寫清楚的 commit message（見下方慣例）
+   - 推到 origin 和 homee 兩個 remote
+
+5. **觸發下一輪 review**
+   - 在 PR 留言 `/Gemini review`
+
+6. **等待**
+   - `sleep 210` 秒（約 3.5 分鐘）等待 Gemini 回應
+   - 若時間到了沒有新 review，再等 60-120 秒重試
+
+7. **檢查終止條件後回到步驟 1**
+
+### 終止條件
+
+- Gemini 回覆包含 **"I have no feedback"** 或 **"no review comments were submitted"**
+- Gemini bot 達到每日額度限制（"daily quota"）
+- 使用者手動要求停止
+
+---
+
+## Commit 慣例
+
+```
+<type>: <簡述>
+
+<詳細說明>
+
+Co-Authored-By: <agent-name> <noreply@anthropic.com>
+```
+
+Type: `fix`, `feat`, `refactor`, `chore`, `docs`, `test`
+
+## ⚠️ Git push 安全守則（2026-06-18 事故教訓）
+
+一次自動化操作曾一次刪光多個 repo 預設分支的所有檔案。根因與必守規則：
+
+- **絕不**用 `git worktree add --no-checkout` 後直接 commit：該模式下 index 為空，commit 出來的 tree 只含你新增的檔，等於**刪除其餘所有已追蹤檔案**。
+- **任何 push 前**（尤其腳本化、多 repo、或推預設分支）先跑 `git show --stat` / `git diff --stat`，確認只動到預期的檔。
+- 新增單一檔案：用**正常 checkout** 的 worktree，或明確 `git add` 後檢查 `git status`，並走 **feature 分支 + PR**，不要直接 push 到 main/master。
+- force-push 預設分支屬破壞性操作，需人類明確授權後才執行。
